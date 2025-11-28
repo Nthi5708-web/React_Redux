@@ -14,8 +14,6 @@ class Mycomponent extends React.Component {
 
     this.setState({
       name: "Đình Thi",
-    });
-    this.setState({
       age: Math.floor(Math.random() * 100 + 1),
     });
   };
