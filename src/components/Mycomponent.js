@@ -2,48 +2,26 @@
 // functional component
 
 import React from "react";
+import UserInfor from "./Userinfor";
+import DisplayInfor from "./Displayinfor";
 class Mycomponent extends React.Component {
   state = {
-    name: "Thu Trang",
-    // address: "Đak Lak",
-    // age: 20,
-  };
-
-  handleClick = (event) => {
-    console.log(">>> Click me");
-
-    this.setState({
-      name: "Đình Thi",
-      age: Math.floor(Math.random() * 100 + 1),
-    });
-  };
-  handleOnMouseOver(event) {
-    // console.log(event.pageX);
-  }
-
-  handlOnChangeInput = (event) => {
-    this.setState({
-      name: event.target.value,
-    });
-  };
-
-  handlOnSubmit = (event) => {
-    event.preventDefault();
-    console.log(">>> Check data on submit: ", this.state);
+    listUssers: [
+      { id: 1, name: "Trang", age: 21 },
+      { id: 2, name: "Thi", age: 21 },
+      { id: 3, name: "Minh", age: 23 },
+    ],
   };
   // JSX
   render() {
+    // tao bien
+    // DRY: dont repeat yourself
     return (
       <div>
-        My name is {this.state.name} and I'm form {this.state.age}
-        <form onSubmit={(event) => this.handlOnSubmit(event)}>
-          <input
-            value={this.state.name}
-            type="text"
-            onChange={(event) => this.handlOnChangeInput(event)}
-          />
-          <button>Submit</button>
-        </form>
+        <UserInfor />
+        <br />
+        <br />
+        <DisplayInfor listUssers={this.state.listUssers} />
       </div>
     );
   }
